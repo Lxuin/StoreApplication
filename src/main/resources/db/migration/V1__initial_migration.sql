@@ -9,7 +9,7 @@ create table users
 
 create table addresses
 (
-    id      bigint       not null
+    id      bigint auto_increment
         primary key,
     street  varchar(255) not null,
     city    varchar(255) not null,
