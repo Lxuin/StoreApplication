@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @Table(name = "profiles")
 public class Profile {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -34,6 +33,5 @@ public class Profile {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id")
     @MapsId
-    @ToString.Exclude
     private User user;
 }

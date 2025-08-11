@@ -45,20 +45,8 @@ public class User {
         address.setUser(null);
     }
 
-    public void addTag(String tagName) {
-        var tag = new Tag(tagName);
-        tags.add(tag);
-        tag.getUsers().add(this);
-    }
-
-    @ManyToMany
-    @JoinTable(
-            name = "user_tags",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
-    )
-    @Builder.Default
-    private Set<Tag> tags = new HashSet<>();
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private Profile profile;
 
     @ManyToMany
     @JoinTable(
@@ -66,8 +54,17 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private Set<Product> wishlist = new HashSet<>();
+    private Set<Product> favoriteProducts = new HashSet<>();
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private Profile profile;
+    public void addFavoriteProduct(Product product) {
+        favoriteProducts.add(product);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "name = " + name + ", " +
+                "email = " + email + ")";
+    }
 }

@@ -16,6 +16,10 @@ public class Category {
         this.name = name;
     }
 
+    public Category(byte id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,5 +31,4 @@ public class Category {
     @OneToMany
     @JoinColumn(name = "category_id")
     private Set<Product> products = new HashSet<>();
-
 }
