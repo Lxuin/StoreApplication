@@ -11,7 +11,6 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Setter
 @Getter
 @Entity
@@ -44,9 +43,6 @@ public class User {
         addresses.remove(address);
         address.setUser(null);
     }
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
-    private Profile profile;
 
     @ManyToMany
     @JoinTable(
