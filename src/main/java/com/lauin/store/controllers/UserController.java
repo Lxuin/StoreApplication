@@ -1,9 +1,6 @@
 package com.lauin.store.controllers;
 
-import com.lauin.store.dtos.ChangePasswordRequest;
-import com.lauin.store.dtos.RegisterUserRequest;
-import com.lauin.store.dtos.UpdateUserRequest;
-import com.lauin.store.dtos.UserDto;
+import com.lauin.store.dtos.*;
 import com.lauin.store.mappers.UserMapper;
 import com.lauin.store.repositories.UserRepository;
 import jakarta.validation.Valid;
@@ -11,14 +8,12 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @AllArgsConstructor
@@ -26,6 +21,7 @@ import java.util.Set;
 public class UserController {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     // method: GET
@@ -63,6 +59,8 @@ public class UserController {
         }
 
         var user = userMapper.toEntity(request);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
 
         var userDto = userMapper.toDto(user);
