@@ -1,6 +1,7 @@
 package com.lauin.store.controllers;
 
 import com.lauin.store.dtos.*;
+import com.lauin.store.entities.Role;
 import com.lauin.store.mappers.UserMapper;
 import com.lauin.store.repositories.UserRepository;
 import jakarta.validation.Valid;
@@ -60,6 +61,7 @@ public class UserController {
 
         var user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.USER);
 
         userRepository.save(user);
 
