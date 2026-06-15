@@ -1,4 +1,4 @@
-package com.lauin.store.dtos;
+package com.lauin.store.payments;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
