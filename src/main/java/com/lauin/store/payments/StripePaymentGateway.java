@@ -1,8 +1,8 @@
 package com.lauin.store.payments;
 
-import com.lauin.store.entities.Order;
-import com.lauin.store.entities.OrderItem;
-import com.lauin.store.entities.PaymentStatus;
+import com.lauin.store.orders.Order;
+import com.lauin.store.orders.OrderItem;
+import com.lauin.store.orders.PaymentStatus;
 import com.stripe.exception.SignatureVerificationException;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Event;

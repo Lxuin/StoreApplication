@@ -1,6 +1,6 @@
 package com.lauin.store.payments;
 
-import com.lauin.store.entities.PaymentStatus;
+import com.lauin.store.orders.PaymentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

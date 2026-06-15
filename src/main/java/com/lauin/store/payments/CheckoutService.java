@@ -1,12 +1,12 @@
 package com.lauin.store.payments;
 
-import com.lauin.store.entities.Order;
-import com.lauin.store.exceptions.CartEmptyException;
-import com.lauin.store.exceptions.CartNotFoundException;
-import com.lauin.store.repositories.CartRepository;
-import com.lauin.store.repositories.OrderRepository;
-import com.lauin.store.services.AuthService;
-import com.lauin.store.services.CartService;
+import com.lauin.store.orders.Order;
+import com.lauin.store.carts.CartEmptyException;
+import com.lauin.store.carts.CartNotFoundException;
+import com.lauin.store.carts.CartRepository;
+import com.lauin.store.orders.OrderRepository;
+import com.lauin.store.auth.AuthService;
+import com.lauin.store.carts.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

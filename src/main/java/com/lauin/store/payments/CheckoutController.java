@@ -1,9 +1,9 @@
 package com.lauin.store.payments;
 
-import com.lauin.store.dtos.ErrorDto;
-import com.lauin.store.exceptions.CartEmptyException;
-import com.lauin.store.exceptions.CartNotFoundException;
-import com.lauin.store.repositories.OrderRepository;
+import com.lauin.store.common.ErrorDto;
+import com.lauin.store.carts.CartEmptyException;
+import com.lauin.store.carts.CartNotFoundException;
+import com.lauin.store.orders.OrderRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

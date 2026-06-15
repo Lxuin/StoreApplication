@@ -1,6 +1,6 @@
 package com.lauin.store.payments;
 
-import com.lauin.store.entities.Order;
+import com.lauin.store.orders.Order;
 
 import java.util.Optional;
 
